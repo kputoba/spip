@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiPEMAN-SPIP KPU Toba</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://www.kpu.go.id/images/1627539868logo-kpu.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow: hidden; background: #1a237e; }
+    iframe {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="mainFrame"
+    src="https://script.google.com/macros/s/AKfycbwo1GpTF6jxKnNHacgN8Dn24IKbcM8bW_CK9Lm53R58d4mz4pdDtwuthR3lfJ-00cC3/exec?page=landing"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('goto') === 'dashboard') {
+      document.getElementById('mainFrame').src =
+        'https://script.google.com/macros/s/AKfycbwo1GpTF6jxKnNHacgN8Dn24IKbcM8bW_CK9Lm53R58d4mz4pdDtwuthR3lfJ-00cC3/exec?page=dashboard';
+    }
+
+    window.addEventListener('message', function(e) {
+      if (e.data === 'goto-dashboard') {
+        document.getElementById('mainFrame').src =
+          'https://script.google.com/macros/s/AKfycbwo1GpTF6jxKnNHacgN8Dn24IKbcM8bW_CK9Lm53R58d4mz4pdDtwuthR3lfJ-00cC3/exec?page=dashboard';
+      }
+    });
+  </script>
+</body>
+</html>
